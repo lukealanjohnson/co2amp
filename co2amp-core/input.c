@@ -46,6 +46,11 @@ void ReadCommandLine(int argc, char **argv)
     //Read command line
     char debug_str[1024];
     strcpy(debug_str, "Command line: ");
+    //Display help if no command line arguments
+    if(argc == 1){
+        printf("Running with default values.\n");
+        printf("Run with --help flag for more input information.\n\n");
+    }
     for (i=1; i<argc; i++){
         // debug string
         strcat(debug_str, argv[i]);
