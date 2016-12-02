@@ -46,11 +46,64 @@ void ReadCommandLine(int argc, char **argv)
     //Read command line
     char debug_str[1024];
     strcpy(debug_str, "Command line: ");
+
     //Display help if no command line arguments
     if(argc == 1){
         printf("Running with default values.\n");
-        printf("Run with --help flag for more input information.\n\n");
+        printf("Run with only --help flag for more input information.\n\n");
     }
+    if(argc == 2 && strcmp(argv[1], "--help")==0){
+        printf("Command Line Help\n");
+        printf("-----------------\n\n");
+        printf("The following files must be in the working directory\n");
+        printf("    discharge.txt\n");
+        printf("    optics_components.txt\n");
+        printf("    optics_layout.txt.txt\n");
+        printf("\n");
+        printf("There are many optional command line arguments.\n");
+        printf("\n");
+        printf("  Flag          Type      Default Unit  Description \n");
+        printf("  -E0           (float) %9g J       Initial pulse energy.\n", E0);
+        printf("  -r0           (float) %9g cm      Initial beam radius (hwhm)\n", r0*1e2);
+        printf("  -tau0         (float) %9g ps      Initial pulse half-width (fwhm).\n", tau0*1e12);
+        printf("  -vc           (float) %9g THz     Carrying frequency.\n", vc*1e-12);
+        printf("  -t_inj        (float) %9g us      Injection moment.\n", t_inj);
+        printf("  -n_pulses     (int)   %9g         Number of pulses in the train.\n", n_pulses);
+        printf("  -Dt_train     (float) %9g us      Delay between pulses in the train.\n", Dt_train*1e6);
+        printf("  -pumping      (str)   %9s         Pumping type (discharge or optical)\n", pumping);
+        printf("  -Vd           (float) %9g cm^3    Discharge volume.\n", Vd*1e-6);
+        printf("  -D            (float) %9g cm      Distance between electrodes.\n", D*1e2);
+        printf("  -pump_wl      (float) %9g um      Wavelength of optical pumping.\n", pump_wl*1e6);
+        printf("  -pump_sigma   (float) %9g cm^2    Optical pumping abs. cross-section\n", pump_sigma*1e4);
+        printf("  -pump_fluence (float) %9g J/cm^2  Fluence of optical pumping\n", pump_fluence*1e-4);
+        printf("  -p_626        (float) %9g bar     16O-12C-16O pressure\n", p_626);
+        printf("  -p_628        (float) %9g bar     16O-12C-18O pressure\n", p_628);
+        printf("  -p_828        (float) %9g bar     18O-12C-18O pressure\n", p_828);
+        printf("  -p_636        (float) %9g bar     16O-13C-16O pressure\n", p_636);
+        printf("  -p_638        (float) %9g bar     16O-13C-18O pressure\n", p_638);
+        printf("  -p_838        (float) %9g bar     18O-13C-18O pressure\n", p_838);
+        printf("  -p_N2         (float) %9g bar     N2 pressure\n", p_N2);
+        printf("  -p_He         (float) %9g bar     He pressure\n", p_He);
+        printf("  -p_T0         (float) %9g K       Initial gas temperature\n", T0);
+        printf("  -x0           (int)   %9d         Radial steps\n", x0);
+        printf("  -n0           (int)   %9d         Time steps\n", n0);
+        printf("  -t_pulse_lim  (float) %9g ps      Pulse time calculation limit\n", t_pulse_lim*1e12);
+        printf("  -t_pulse_shift(float) %9g ps      Pulse shift from 0\n", t_pulse_shift*1e12);
+        printf("  -debug_level  (int)   %9d         Debug level\n", debug_level);
+        printf("  -bands        (int)   %9d         All bands (1 (reg) + 2 (hot) + 4 (seq)\n", bands);
+        
+
+        printf("  -noprop    (flag)                    Skip propagation calculations.\n");
+
+        printf("  -from_file (bool)    If 1, use input field from files 'field_in_re.dat' and \n"
+               "                       'field_in_im.dat. Default is 0.'\n");
+//-from_file 0 -E0 0.01 -r0 0.25 -tau0 5 -vc 28.3062 -t_inj 0.65 -n_pulses 1 
+
+
+        return 0; // Exit Program    
+    }           
+
+
     for (i=1; i<argc; i++){
         // debug string
         strcat(debug_str, argv[i]);
