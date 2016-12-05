@@ -93,14 +93,13 @@ void ReadCommandLine(int argc, char **argv)
         printf("  -bands        (int)   %9d         All bands (1 (reg) + 2 (hot) + 4 (seq)\n", bands);
         
 
-        printf("  -noprop    (flag)                    Skip propagation calculations.\n");
+        printf("  -noprop       (flag)                    Skip propagation calculations.\n");
 
-        printf("  -from_file (bool)    If 1, use input field from files 'field_in_re.dat' and \n"
-               "                       'field_in_im.dat. Default is 0.'\n");
-//-from_file 0 -E0 0.01 -r0 0.25 -tau0 5 -vc 28.3062 -t_inj 0.65 -n_pulses 1 
+        printf("  -from_file    (bool)  %9d         If 1, use input field from files\n"
+               "                                          'field_in_re.dat' and 'field_in_im.dat'.\n", from_file);
+//        printf("\n");
 
-
-        return 0; // Exit Program    
+        exit(0); // Exit Program  
     }           
 
 
