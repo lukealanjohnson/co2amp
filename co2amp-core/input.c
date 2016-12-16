@@ -97,7 +97,8 @@ void ReadCommandLine(int argc, char **argv)
 
         printf("  -from_file    (bool)  %9d         If 1, use input field from files\n"
                "                                          'field_in_re.dat' and 'field_in_im.dat'.\n", from_file);
-//        printf("\n");
+        printf("\nAt least in the bash shell, the flags can be stored in a file and run using \n\n"
+               "\tco2amp-core `< file`\n\n");
 
         exit(0); // Exit Program  
     }           
