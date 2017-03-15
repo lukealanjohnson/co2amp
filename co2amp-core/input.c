@@ -71,7 +71,7 @@ void ReadCommandLine(int argc, char **argv)
         printf("  -n_pulses     (int)   %9g         Number of pulses in the train.\n", n_pulses);
         printf("  -Dt_train     (float) %9g us      Delay between pulses in the train.\n", Dt_train*1e6);
         printf("  -pumping      (str)   %9s         Pumping type (discharge or optical)\n", pumping);
-        printf("  -Vd           (float) %9g cm^3    Discharge volume.\n", Vd*1e-6);
+        printf("  -Vd           (float) %9g cm^3    Discharge volume.\n", Vd*1e6);
         printf("  -D            (float) %9g cm      Distance between electrodes.\n", D*1e2);
         printf("  -pump_wl      (float) %9g um      Wavelength of optical pumping.\n", pump_wl*1e6);
         printf("  -pump_sigma   (float) %9g cm^2    Optical pumping abs. cross-section\n", pump_sigma*1e4);
