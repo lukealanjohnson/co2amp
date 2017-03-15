@@ -68,7 +68,7 @@ void ReadCommandLine(int argc, char **argv)
         printf("  -tau0         (float) %9g ps      Initial pulse half-width (fwhm).\n", tau0*1e12);
         printf("  -vc           (float) %9g THz     Carrying frequency.\n", vc*1e-12);
         printf("  -t_inj        (float) %9g us      Injection moment.\n", t_inj);
-        printf("  -n_pulses     (int)   %9g         Number of pulses in the train.\n", n_pulses);
+        printf("  -n_pulses     (int)   %9d         Number of pulses in the train.\n", n_pulses);
         printf("  -Dt_train     (float) %9g us      Delay between pulses in the train.\n", Dt_train*1e6);
         printf("  -pumping      (str)   %9s         Pumping type (discharge or optical)\n", pumping);
         printf("  -Vd           (float) %9g cm^3    Discharge volume.\n", Vd*1e6);
